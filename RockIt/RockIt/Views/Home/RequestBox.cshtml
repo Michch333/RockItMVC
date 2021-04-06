@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RockIt.Models.ViewModels.RequestBoxViewModel
+
+<h1>Request Box</h1>
+<form>
+    <input asp-for="Description" type="text" placeholder="Tell us about your needs!" />
+    <div>
+        <p>What types of clothing do you need?</p>
+        @foreach (RockIt.Models.ViewModels.Article option in Model.Options)
+        {
+            <label >@option</label>
+            <input type ="checkbox" />
+        }
+    </div>
+    <label>Event Date:</label>
+    <input asp-for="EventDate" />
+    <label>Budget:</label>
+    <input asp-for="Budget" />
+    <button>Request!</button>
+</form>
